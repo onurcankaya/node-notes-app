@@ -1,22 +1,21 @@
 console.log('starting app')
 
 const fs = require('fs')
-const os = require('os')
 const _ = require('lodash')
+
 const notes = require('./notes')
 
-const result = notes.addNote()
-console.log(result)
+const command = process.argv[2]
+console.log(process.argv)
 
-const filteredArray = _.uniq(['Onur', 3, 4, 9, 'Onur', 3, 3, 3, 'Onur'])
-console.log(filteredArray)
-
-// const user = os.userInfo()
-
-// fs.appendFile('greetingz.txt', ' hello ' + user.username, (err) => {
-//     if (err) {
-//         console.log('unable to write to file')
-//     }
-// })
-
-// fs.appendFileSync('greetings.txt', `hello ${user.username}`)
+if (command === 'add') {
+  console.log('adding new note')
+} else if (command === 'list') {
+  console.log('listing all notes')
+} else if (command === 'read') {
+  console.log('fetching note')
+} else if (command === 'remove') {
+  console.log('removing note')
+} else {
+  console.log('command not recognized')
+}
