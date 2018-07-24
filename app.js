@@ -12,7 +12,17 @@ console.log('process', process.argv)
 console.log('yargs', argv)
 
 if (command === 'add') {
-  notes.addNote(argv.title, argv.body)
+  const note = notes.addNote(argv.title, argv.body)
+  if (note) {
+    console.log('note created')
+    console.log('------')
+    console.log(`title: ${note.title}`)
+    console.log('------')
+    console.log(`body: ${note.body}`)
+    console.log('------')
+  } else {
+    console.log('note already exist')
+  }
 } else if (command === 'list') {
   notes.getAll(argv.title, argv.body)
 } else if (command === 'read') {
