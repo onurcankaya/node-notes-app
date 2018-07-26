@@ -1,5 +1,3 @@
-console.log('starting app')
-
 const fs = require('fs')
 const _ = require('lodash')
 const yargs = require('yargs')
@@ -18,7 +16,9 @@ if (command === 'add') {
     console.log('note already exist')
   }
 } else if (command === 'list') {
-  notes.getAll(argv.title, argv.body)
+  const allNotes = notes.getAll(argv.title, argv.body)
+  console.log(`Printing ${allNotes.length} note(s)`)
+  allNotes.map((note) => notes.logNote(note))
 } else if (command === 'read') {
   const note = notes.getNote(argv.title, argv.body)
   if (note) {
