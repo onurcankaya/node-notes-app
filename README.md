@@ -1,1 +1,1 @@
-# node.js-notes
+# node-notes-app
